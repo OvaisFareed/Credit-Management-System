@@ -1,0 +1,86 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div>
+            <button onclick="addCustomer();">Add Customer</button>
+            <button onclick="ovais.addCredit();">Add Credit</button>
+            <button onclick="ovais.addDebit();">Add Debit</button>
+        </div>
+        <script>
+             /* function Customer(clientName,creditLimit,totalCredit){
+                this.creditLimit=creditLimit;
+                this.clientName=clientName;
+                this.totalCredit=totalCredit;
+            } */
+
+            function addCustomer(){
+                /* this.name = name;
+                this.creditLimit = creditLimit;
+                this.totalCredit = totalCredit; */
+            
+            var i=0,j=0,custName=[], custCreditLimit=[], custCredit=[];
+            var name = prompt("Enter Your Name:");
+            var creditLimit = parseInt(prompt("Enter your Credit limit:"));
+            var totalCredit = parseInt(prompt("Enter your Credit:"));
+            
+            custName.push(name);
+            custCreditLimit.push(creditLimit);
+            custCredit.push(totalCredit);
+            alert("data saved..");
+            
+            for(i=0; i <custName.length; i++ ){
+                alert(i+" name is = "+custName[i]);
+            }
+            
+            for(i=0; i <custCreditLimit.length; i++ ){
+                alert(i+" custCreditLimit is = "+custCreditLimit[i]);
+            }
+           for(i=0; i <custCredit.length; i++ ){
+                alert(i+" custCredit is = "+custCredit[i]);
+            }
+            
+            addCustomer.prototype.addCredit = function(){
+            alert(custCredit[i]);
+            var newCredit = parseInt(prompt("Enter amount:"));
+            if(custCredit.length === 0){
+               custCredit.push(newCredit);
+               return alert("your credit is "+newCredit+" Rs.");
+            }
+            else{
+                custCredit[i] = custCredit[i] + newCredit;
+                if(custCredit > creditLimit){
+                    alert(name+" we can't give you more credit..");
+                }
+                else{
+                custCredit.push(custCredit[i]);
+               return alert("your new Credit is "+custCredit[i]+" Rs.");
+                    
+                }
+           }
+          };
+            
+            
+            addCustomer.prototype.addDebit = function(){
+            var debit = parseInt(prompt("Enter Debit amount:"));
+                if(debit > custCreditLimit[i]){
+                    return alert("your entered amount is greater than limit..");
+                }
+                else{
+                    var credit = custCreditLimit[i] - debit;
+                    return alert(debit+" Rs. debited from your Account, your Credit became "+credit);
+                }                
+            };
+         }
+    var ovais = new addCustomer();           
+           
+        </script>
+    </body>
+</html>

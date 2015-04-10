@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+              <div>
+            <button onclick="Customer();">Add Customer</button>
+            <button onclick="credit(2);">Add Credit</button>
+            <button onclick="ishaq.debit(1);">Add Debit</button>
+        </div>
+        <script>
+            /*function WorldCup(myTeam){
+                this.team=myTeam;
+            }
+            WorldCup.prototype.hello=function(world){
+                alert(world);
+            };
+            var inst= new WorldCup("Pakistan");
+            alert(inst.hello("India"));*/
+            /*function Tree(){
+                }
+            Tree.prototype.leaves="Green";
+            Tree.prototype.root="long";
+            var mangoTree= new Tree();
+            alert(mangoTree.prototype.leaves);*/
+            function Customer(clientName,creditLimit,totalCredit){
+                this.creditLimit=creditLimit;
+                this.clientName=clientName;
+                this.totalCredit=totalCredit;
+                alert("ok "+clientName+" your data is saved now!")
+            }
+            Customer.prototype.credit=function(val){
+                if(val+this.totalCredit > this.creditLimit){
+                    return this.clientName+" we can't give you more Credit";
+                }
+                else{
+                    this.totalCredit+=val;
+                    return this.clientName+" Ok your Total Credit became "+this.totalCredit;
+                }
+            };
+            Customer.prototype.debit=function(val){
+                if(this.totalCredit == 0){
+                    return "you don't have any credit";
+                }
+                else if(val > this.totalCredit){
+                    val-=this.totalCredit;
+                    this.totalCredit =0;
+                    return this.clientName+" Your Total Credit becomes 0, collect "+val;
+                }
+                else{
+                    this.totalCredit-=val;
+                    return this.clientName+" Ok your Total Credit became "+this.totalCredit;
+                }
+            };
+            var ishaq = new Customer("Ishaq",100,0);
+            alert(ishaq.credit(50));
+/*            
+            
+            alert(ishaq.debit(50));
+            alert(ishaq.credit(50));
+            alert(ishaq.debit(100));
+            */
+        </script>
+    </body>
+</html>
